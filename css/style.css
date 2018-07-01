@@ -1,0 +1,341 @@
+/*
+
+© 2015-2017, thème ToonCraft par AngryKiller (http://angrykiller.ml)
+
+*/
+
+.js .preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    z-index: 9999;
+    background: #fff;
+}
+
+.js .preloader:after {
+    content: "";
+    position: absolute;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+    width: 50px;
+    height: 50px;
+    animation: preloader-animation 2s infinite;
+}
+
+@keyframes preloader-animation {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.2);
+    }
+    40% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    80% {
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        transform: scale(1) rotate(180deg);
+    }
+}
+
+.preloader:after {
+    border: solid 1px #3498db;
+}
+
+.icone img {
+    width: 150px;
+    height: 150px;
+    -webkit-transition: -webkit-transform 1.2s;
+    -moz-transition: -moz-transform 1.2s;
+    -o-transition: -o-transform 1.2s;
+    -ms-transition: -ms-transform 1.2s;
+    transition: transform 1.2s;
+}
+
+.icone img:hover {
+    -webkit-transform: rotate(360deg)scale(1.25);
+    -moz-transform: rotate(360deg)scale(1.25);
+    -o-transform: rotate(360deg)scale(1.25);
+    -ms-transform: rotate(360deg)scale(1.25);
+    transform: rotate(360deg)scale(1.25);
+}
+
+.footer {
+    margin-top: 30px;
+    background-color: #E7E7E7;
+    border-radius: 0;
+    text-align: center;
+    font-family: 'Raleway', 'Minecraftia', 'Jack', Arial;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    height: 100px;
+    border-top-style: solid;
+    border-top-width: 3px;
+    padding: 20px;
+    font-size: 16px;
+}
+
+.btn-widgets {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.open > .dropdown-menu {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: 1;
+}
+
+.dropdown-menu {
+    opacity: .3;
+    -webkit-transform-origin: top;
+    -moz-transform-origin: top;
+    transform-origin: top;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-transform: scale(1, 0);
+    -moz-transform: scale(1, 0);
+    display: block;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+}
+
+h1 {
+    font-family: 'Raleway', 'Helvetica Neue', 'Jack', Arial;
+}
+
+p {
+    font-family: 'Raleway', 'Helvetica Neue', 'Jack', Arial;
+}
+
+a.tooltips2 {
+    position: relative;
+    display: inline;
+}
+
+a.tooltips2 span {
+    position: absolute;
+    width: 140px;
+    color: #FFFFFF;
+    background: #000000;
+    border: 2px solid #6D6D6D;
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    visibility: hidden;
+    border-radius: 8px;
+    box-shadow: -1px 0px 6px #000000;
+}
+
+a.tooltips2 span:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -12px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #6D6D6D;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+}
+
+a.tooltips2 span:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid #000000;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
+a:hover.tooltips2 span {
+    visibility: visible;
+    opacity: 1;
+    bottom: 40px;
+    left: 70%;
+    margin-left: -76px;
+    z-index: 999;
+    height: 41px;
+}
+
+.bloc .titre-offre {
+    border: none;
+    text-align: center;
+    margin: 0;
+    font-size: 22px;
+    margin: 8px 0px;
+}
+
+.offre-boutique {
+    padding: 30px;
+}
+
+.boutique-row {
+    padding: 15px;
+}
+
+.offre-contenu {
+    height: 250px;
+    padding: 0;
+}
+
+.offre-contenu li {
+    font-size: 15px;
+}
+
+.footer-offre {
+    border-top-style: solid;
+    border-top-width: 1px;
+    padding: 6px;
+    height: 52px;
+}
+
+.offre-description {
+    color: #8C9191;
+}
+
+.offre-description img {
+    height: 165px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+}
+
+.contenuBoutique {
+    display: block;
+    height: 195px;
+    padding: 5px;
+    text-align: center;
+}
+
+.nav-center {
+    text-align: center;
+    ul nav {
+        display: inline-block;
+        li {
+            display: inline a {
+                float: left
+            }
+        }
+    }
+}
+
+html {
+    overflow-x: hidden;
+}
+
+.jumbotron.parallax {
+    padding-top: 150px;
+    border-bottom: 0px !important;
+    padding-bottom: 150px;
+    color: white;
+    background-position: top;
+    margin-top: -75px;
+}
+
+.newsbg {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background-position: center;
+    margin-top: -75px;
+    margin-bottom: -30px;
+}
+
+.navbar-default {
+    background: transparent;
+    border-color: transparent;
+    transition: 0.2s all linear;
+    font-family: Raleway, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.navbar-default.change-color {
+    background-color: #f8f8f8;
+    border-width: 0 1px 4px 1px;
+    border-color: #E7E7E7;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+}
+
+.title {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px 30px;
+    display: inline-block;
+    border-radius: 2px;
+    width: auto;
+    color: inherit;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.ipserveur {
+    font-size: 40px;
+}
+
+.ipserveuranim {
+    -webkit-transition: -webkit-transform 1.2s;
+    -moz-transition: -moz-transform 1.2s;
+    -o-transition: -o-transform 1.2s;
+    -ms-transition: -ms-transform 1.2s;
+    transition: transform 1.2s;
+}
+
+.ipserveuranim:hover {
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    transform: scale(1.25);
+}
+
+.panel-news {
+    -webkit-transition: -webkit-transform 0.2s;
+    -moz-transition: -moz-transform 0.2s;
+    -o-transition: -o-transform 0.2s;
+    -ms-transition: -ms-transform 0.2s;
+    transition: transform 0.2s;
+}
+
+.panel-news:hover {
+    -webkit-transform: scale(1.07);
+    -moz-transform: scale(1.07);
+    -o-transform: scale(1.07);
+    -ms-transform: scale(1.07);
+    transform: scale(1.07);
+}
+
+.transparent {
+    background: transparent !important;
+}
+
+.label-shop {
+    width: 310px !important;
+    height: 37px !important;
+    font-size: 20px;
+}
+
+.btn-shop {
+    margin-bottom: 10px;
+}
