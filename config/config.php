@@ -46,7 +46,7 @@ $logo = "true";
 
 // VerCheck (Pour désactiver VerCheck, mettez "false" à la place de "true") PS: Si vous désactivez VerCheck, vous ne serez plus informé lorsqu'une nouvelle mise à jour du thème sera disponible.
 
-$vercheck = "true";
+$vercheck = "false";
 
 // Beh oui, c'est déjà fini! Si tu as des idées, propose les sur le topic officiel du thème sur le forum de CraftMyWebsite
 

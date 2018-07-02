@@ -91,7 +91,7 @@
                 <?php $j = 0;
 					while($tickets = $ticketReq->fetch()) { ?>
                     <tr>
-                        <td> <a href="index.php?&page=profil&profil=<?php echo $tickets['auteur'] ?>"><img class="icon-player-topbar" src="http://api.craftmywebsite.fr/skin/face.php?u=<?php echo $tickets['auteur']; ?>&s=32&v=front" /> <?php echo $tickets['auteur'] ?></a> </td>
+                        <td> <a href="index.php?&page=profil&profil=<?php echo $tickets['auteur'] ?>"><img class="icon-player-topbar" src="http://api.craftmywebsite.fr/skin/face.php?u=<?php echo $tickets['auteur']; ?>&s=32&v=front" /> <span class="labal label-info"> <?php echo $tickets['auteur'] ?></span></a> </td>
                         <td>
                             <?php echo $tickets['titre'] ?>​ </td>
                         <td>
