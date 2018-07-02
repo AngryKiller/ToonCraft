@@ -9,7 +9,9 @@
             <hr>
             <h3 class="text-center" style="color: white;">Bonjour <?php echo $_Joueur_['pseudo']; ?></h3>
             <h4 class="text-center" style="color: white;">Vous avez <strong><?php if(isset($_Joueur_['tokens'])) echo $_Joueur_['tokens'] . ' <img style="width: 25px;" src="./theme/default/img/jeton.png" />'; ?></h4></strong>
-            <center><a href="?&page=token" class="btn btn-success btn-lg">Acheter des <?php echo $monnaie ?>s</a></center>
+            <center><a href="?&page=token" class="btn btn-success btn-lg">Acheter des <?php echo $monnaie ?>s</a>
+                <a href="?&page=panier" class="btn btn-warning btn-lg"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Panier ( <?php echo $_Panier_->compterArticle().($_Panier_->compterArticle()>1 ? ' articles' : ' article') ?>)</a>
+            </center>
             <?php } else { ?>
                 <hr>
                 <center>
@@ -142,15 +144,18 @@ if(isset($_GET['offre']))
                         </p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                        <?php 	if($_Joueur_['tokens'] >= $infosOffre['offre']['prix'])
-					if(($enLigne AND $infosCategories['connection']) OR !$infosCategories['connection']) { ?> <a href="?&action=achat&offre=<?php echo $_GET['offre']; ?>" class="btn btn-success">Acheter</a>
-                            <?php } else{ ?> Connectez vous sur le serveur voulu...
-                                <?php } 
-				else
-					echo '<button class="btn btn-primary">Il vous manque '. ($infosOffre['offre']['prix'] - $_Joueur_['tokens']) .' jetons...</button>';
-				?>
-                    </div>
+                        <?php 	if(($enLigne AND $infosCategories['connection']) OR !$infosCategories['connection']) { ?>
+                            <form action="index.php" method="GET" class="form-inline">
+                            <input type="hidden" name="action" value="addOffrePanier"/>
+                            <input type="hidden" name="offre" value="<?php echo $_GET['offre']; ?>"/>
+                            <label for="quantite" class="form-control mb-1 mr-sm-1">Quantité: </label>
+                            <input type="number" class="form-control mb-1 mr-sm-1" id="quantite" min="0" name="quantite" value="1" />
+                            <button type="submit" class="btn btn-success mb-2">Ajouter au panier</button>
+                            </form><?php } else{ ?>
+                            Connectez vous sur le serveur voulu... <?php }
+                        ?>
+                    </div><button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100%;
+border-radius: 0px;">Annuler</button>
                 </div>
             </div>
         </div>
