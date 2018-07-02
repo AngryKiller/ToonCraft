@@ -1,6 +1,6 @@
 /*
 
-© 2015-2017, thème ToonCraft par AngryKiller (http://angrykiller.ml)
+© 2015-2018, thème ToonCraft par AngryKiller (http://angrykiller.ml)
 
 */
 
@@ -267,13 +267,17 @@ html {
     transition: 0.2s all linear;
     font-family: Raleway, Helvetica Neue, Helvetica, sans-serif;
 }
-
+.navbar-default>.container>.navbar-collapse>ul>li>a{
+    color: white;
+}
 .navbar-default.change-color {
     background-color: #f8f8f8;
     border-width: 0 1px 4px 1px;
     border-color: #E7E7E7;
 }
-
+.navbar-default.change-color>.container>.navbar-collapse>ul>li>a{
+    color: #999999;
+}
 .logo {
     width: 30px;
     height: 30px;
