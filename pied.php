@@ -6,7 +6,7 @@
                     <?php echo $_Serveur_['General']['name'] ?>
                         <?php 
   echo date('Y') ?>. Tous droits réservés
-                            <br> Site créé avec <a href="http://craftmywebsite.fr">CraftMyWebsite</a>
+                            <br> Site créé avec <a href="http://craftmywebsite.fr">CraftMyWebsite</a>#<?php echo $versioncms; ?>
                             <br> Thème ToonCraft par <a href="http://angrykiller.raidghost.com">AngryKiller</a> </div>
             </div>
         </div>
