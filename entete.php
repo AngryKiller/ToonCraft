@@ -83,7 +83,7 @@
                     <li class="divider-vertical"></li>
                     <li class="divider-vertical"></li>
                     <?php if(isset($_Joueur_)) { ?>
-                        <li class="dropdown" style="height: 50px;margin-top: -5px;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b> <img src="https://cravatar.eu/avatar/<?php echo $_Joueur_['pseudo']; ?>/20" style="margin-left: -10px"> <?php echo $_Joueur_['pseudo']; ?></a>
+                        <li class="dropdown" style="height: 50px;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="https://cravatar.eu/avatar/<?php echo $_Joueur_['pseudo']; ?>/20" style="margin-left: -10px"> <?php echo $_Joueur_['pseudo']; ?> <b class="caret"></b></a>
                             <?php } else { ?>
                                 <li class="dropdown" style="height: 50px;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Connexion/Inscription<b class="caret"></b></a>
                                     <?php } ?>
