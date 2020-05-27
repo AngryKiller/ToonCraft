@@ -125,7 +125,7 @@ if (isset($news)){
 									if($_Joueur_['pseudo'] == $checkLike) {
 										echo '<div style="float: right;">';
 									} else {
-										echo '<div style="float: right;">
+										echo '
 										<a href="?&action=likeNews&id_news='.$news[$i]['id'].'"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i> J\'aime !</a>';
 									}
 								} else {
@@ -257,7 +257,7 @@ if (isset($news)){
                         </div>
                     </div>
                 </div>
-        </div>
+
 
 
                 <?php $i++;
@@ -266,3 +266,4 @@ if (isset($news)){
 ?>
         </div>
     </div>
+</div>
