@@ -2,7 +2,7 @@
     <div class="container">
         <h1> Boutique - Panier </h1>
         <br/>
-        <p> Achetez plusieurs items en déboursant une seule fois </p>
+        <p> Obtenez plusieurs items en un seul achat </p>
     </div>
 </div>
 <div class="container">
@@ -16,11 +16,11 @@
         <table class="table table-striped table-bordered">
             <thead class="thead-inverse">
                 <tr>
-                    <th>Item/Grade</th>
+                    <th>Produit</th>
                     <th>Description</th>
-                    <th>Quantite</th>
-                    <th>Prix Unitaire</th>
-                    <th>Sous-Total</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Sous-total</th>
                     <th>Actions</th>
                 </tr>
             </thead>
