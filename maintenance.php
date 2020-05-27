@@ -26,14 +26,11 @@ header('Location: index.php');
 
     <body>
         <div class="main" style="<?php echo $bgType; ?>background-size: cover;">
-            <!--    Change the image source '/images/default.jpg' with your favourite image.     -->
             <div class="cover black" data-color="black"></div>
-            <!--   You can change the black color for the filter with those colors: blue, green, red, orange       -->
             <div class="container">
                 <h1 class="logo cursive">
            <?php echo $_Serveur_['General']['name']; ?> est en maintenance
         </h1>
-                <!--  H1 can have 2 designs: "logo" and "logo cursive"           -->
             </div>
             <div class="content">
                 <h4 class="motto"><?php echo $maintenance[$i]['maintenanceMsg']; ?></h4>
@@ -65,11 +62,8 @@ header('Location: index.php');
                         <button type="button" class="btn btn-default btn-fill" data-dismiss="modal">Fermer</button>
                     </div>
                 </div>
-                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal -->
         </div>
         </div>
         </div>

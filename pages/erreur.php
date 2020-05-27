@@ -1,14 +1,14 @@
-<div class="jumbotron parallax" data-parallax="scroll" data-image-src="theme/<?php echo $_Serveur_['General']['theme'];?>/img/jumbotron.png">
-    <div class="container">
-        <h1><?php echo $erreur['type']; ?></h1>
-        <br>
-        <p>
-            <?php echo $erreur['titre']; ?>
-        </p>
-    </div>
-</div>
+<div class="bgtop">
+<section class="layout" id="page">
 <div class="container">
-    <p>
-        <?php echo $erreur['message']; ?>
-    </p>
+	<div class="card" style="display: block; margin-left: 20%; text-align: center; margin-right: 20%; margin-top: 12%; padding-top: 2%; padding-bottom: 2%;">
+		<div class="card-body">
+		    <h4 class="card-title"><?=$titre;?></h4>
+		    <h6 class="card-subtitle mb-2 text-muted"><?=$type;?></h6>
+		    <p class="card-text"><?=$contenue;?></p>
+		    <a href="index.php" class="card-link btn btn-primary btn-lg"><i class="fas fa-home"></i>Retourner sur l'accueil</a>
+	  	</div>
+	</div>
+</div>
+</section>
 </div>
