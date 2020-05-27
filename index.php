@@ -9,7 +9,7 @@ require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <meta name="author" content="CraftMyWebsite, TheTueurCiTy, <?php echo $_Serveur_['General']['name']; ?>" />
+        <meta name="author" content="CraftMyWebsite, TheTueurCiTy, <?php echo $_Serveur_['General']['name']; ?>, AngryKiller, Emilien52" />
         <link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/animate.css" rel="stylesheet" type="text/css">
         <link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
@@ -337,7 +337,7 @@ if($_PGrades_['PermsForum']['moderation']['seeSignalement'] == true OR $_Joueur_
             if(signalement > 0)
             {
                 signalement.innerHTML = signalement;
-                var message = "Il y'a ";
+                var message = "Il y a ";
                 message += signalement;
                 message += ' nouveaux signalements !';
                 toastr["error"](message, "Message système")
@@ -465,7 +465,7 @@ if(isset($_GET['page']) && $_GET['page'] == "token" && $_GET['notif'] == 0 && is
     ?><script>
         $(document).ready(function() {
             Snarl.addNotification({
-                title: "Paypal",
+                title: "PayPal",
                 text: "Votre paiement a bien été effectué !",
                 icon: '<i class="fab fa-paypal"></i>',
                 timeout: null
@@ -478,7 +478,7 @@ if(isset($_GET['page']) && $_GET['page'] == "token" && $_GET['notif'] == 1)
     ?><script>
         $(document).ready(function() {
             Snarl.addNotification({
-                title: "Paypal",
+                title: "PayPal",
                 text: "Vous avez annulé votre paiement !",
                 icon: '<i class="fas fa-frown"></i>',
                 timeout: null
