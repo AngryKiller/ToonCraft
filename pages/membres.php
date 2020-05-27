@@ -1,15 +1,11 @@
-<header class="heading-pagination">
-    <div class="container-fluid">
-        <h1 class="text-uppercase wow fadeInRight" style="color:white;">Membres</h1>
-    </div>
-</header>
-<section class="layout" id="page">
+<div class="jumbotron parallax" data-parallax="scroll" data-image-src="theme/<?php echo $_Serveur_['General']['theme'];?>/img/jumbotron.png">
     <div class="container">
-    	 <div class="text-center">
-            <h4 class="text-primary"><i class="fa fa-user"></i> Membres</h4>
-            <p>Ici, vous pourrez consulter la liste des membres du site, voir leur profil ...</p>
-        </div>
-        <br>
+        <h1> Membres </h1>
+        <br/>
+        <p> Liste des membres inscrits </p>
+    </div>
+</div>
+<div class="container">
         <?php 
         $Membres = new MembresPage($bddConnection);
         if(isset($_GET['page_membre']))
@@ -25,7 +21,7 @@
         ?>
         <div class="row">
         	<div class="col-md-12">
-        		<input type="text" onChange="rechercheAjaxMembre();" class="form-control" id="recherche" placeholder="Rechercher un membre. (Appuyez sur 'Entrée' pour valider)" />
+        		<input type="text" onChange="rechercheAjaxMembre();" class="form-control" id="recherche" placeholder="Rechercher un membre (Appuyez sur 'Entrée' pour valider)" />
         	</div>
         </div>
         <table class="table table-hover table-striped">
@@ -78,7 +74,6 @@
 		  </ul>
 		</nav>
     </div>
-</section>
 <script>
 	function rechercheAjaxMembre()
 	{
