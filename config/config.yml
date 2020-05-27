@@ -13,3 +13,5 @@ All:
     atout2_text: Récuperez le stuff de vos ennemis et utilisez le
     atout3_text: Recrutez des amis, faites vous des alliés et dominez sur le monde!
     logo: true
+    home_button: Google
+    home_button_link: https://google.fr

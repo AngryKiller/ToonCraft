@@ -3,13 +3,13 @@
         <h1> Boutique </h1>
         <br/>
         <p> La boutique vous permet d'acheter du contenu <strong>In-Game</strong> grâce a une monnaie virtuelle nommée le
-            <?php echo $monnaie ?>. </p>
+            <?php echo $_Theme_['All']['money'] ?>. </p>
         <br/>
         <?php if(isset($_Joueur_)) { ?>
             <hr>
             <h3 class="text-center" style="color: white;">Bonjour <?php echo $_Joueur_['pseudo']; ?></h3>
             <h4 class="text-center" style="color: white;">Vous avez <strong><?php if(isset($_Joueur_['tokens'])) echo $_Joueur_['tokens'] . ' <img style="width: 25px;" src="./theme/default/img/jeton.png" />'; ?></h4></strong>
-            <center><a href="?&page=token" class="btn btn-success btn-lg">Acheter des <?php echo $monnaie ?>s</a>
+            <center><a href="?&page=token" class="btn btn-success btn-lg">Acheter des <?php echo $_Theme_['All']['money'] ?>s</a>
                 <a href="?&page=panier" class="btn btn-warning btn-lg"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Panier ( <?php echo $_Panier_->compterArticle().($_Panier_->compterArticle()>1 ? ' articles' : ' article') ?>)</a>
             </center>
             <?php } else { ?>

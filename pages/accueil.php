@@ -5,16 +5,16 @@
         <p>
             <?php echo $_Serveur_['General']['description'] ?>
         </p>
-        <?php if(!empty($bouton_accueil)){ ?>
-            <a href="<?php echo $bouton_accueil_lien ?>" class="btn btn-lg btn-success">
-                <?php echo $bouton_accueil ?>
+        <?php if(!empty($_Theme_['All']['home_button'])){ ?>
+            <a href="<?php echo $_Theme_['All']['home_button_link'] ?>" class="btn btn-lg btn-success">
+                <?php echo $_Theme_['All']['home_button'] ?>
             </a>
             <?php }; ?>
     </div>
 </div>
 <center>
-    <?php if(!empty($ipserveur)){ ?>
-        <div class="ipserveuranim"><span class="ipserveur label label-primary"><?php echo $ipserveur ?></span></div>
+    <?php if(!empty($_Serveur_['General']['ipTexte'])){ ?>
+        <div class="ipserveuranim"><span class="ipserveur label label-primary"><?php echo $_Serveur_['General']['ipTexte'] ?></span></div>
         <br/>
         <br/>
         <br/>
@@ -23,23 +23,23 @@
                 <div class="container">
                     <div class="col-md-4">
                         <div class="icone"> <img src="theme/<?php echo $_Serveur_['General']['theme']; ?>/img/swords.png" /> </div>
-                        <h1> <?php echo $atout1_nom ?> </h1>
+                        <h1> <?php echo $_Theme_['All']['atout1_nom'] ?> </h1>
                         <p>
-                            <?php echo $atout1_text ?>
+                            <?php echo $_Theme_['All']['atout1_text'] ?>
                         </p>
                     </div>
                     <div class="col-md-4">
                         <div class="icone"> <img src="theme/<?php echo $_Serveur_['General']['theme']; ?>/img/diamond.png" /> </div>
-                        <h1> <?php echo $atout2_nom ?> </h1>
+                        <h1> <?php echo $_Theme_['All']['atout2_nom'] ?> </h1>
                         <p>
-                            <?php echo $atout2_text ?>
+                            <?php echo $_Theme_['All']['atout2_text'] ?>
                         </p>
                     </div>
                     <div class="col-md-4">
                         <div class="icone"> <img src="theme/<?php echo $_Serveur_['General']['theme']; ?>/img/chest.png" /> </div>
-                        <h1> <?php echo $atout3_nom ?> </h1>
+                        <h1> <?php echo $_Theme_['All']['atout3_nom'] ?> </h1>
                         <p>
-                            <?php echo $atout3_text ?>
+                            <?php echo $_Theme_['All']['atout3_text'] ?>
                         </p>
                     </div>
                 </div>
