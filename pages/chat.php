@@ -13,7 +13,7 @@
         }
 		else if(count($jsonCon) >= 1)
 		{
-			echo '<div class="alert alert-info">Commencez par choisir le serveur ! :)</div>';
+			echo '<div class="alert alert-info">Commencez par choisir le serveur:</div>';
 			$Chat = new Chat($jsonCon);
 			?>
 			<div class="tabbable">
@@ -51,7 +51,7 @@
 								}
 							}
 							else
-								echo '<div class="alert alert-danger">La connexion au serveur n\'a pas pu être établie. :\'(</div>';
+								echo '<div class="alert alert-danger">La connexion au serveur n\'a pas pu être établie. \'(</div>';
 							?>
 						</div>
 					</div>
@@ -79,7 +79,7 @@
 							</select>
 						</div>
 						<div class="col-md-2">
-							<button class="btn btn-success" type="submit">Envoyer :)</button>
+							<button class="btn btn-success" type="submit">Envoyer</button>
 						</div>
 					</div>
 				</form>
