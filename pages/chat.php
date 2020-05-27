@@ -1,13 +1,17 @@
-<header class="heading-pagination">
-	<div class="container-fluid">
-		<h1 class="text-uppercase wow fadeInRight" style="color:white;">Chat Minecraft</h1>
-	</div>
-</header>
-<section class="layout" id="page">
-	<div class="container">		
-		<h3 class="header-bloc">Chat Minecraft</h3>
-		<?php 
-		if(count($jsonCon) >= 1)
+<div class="jumbotron parallax" data-parallax="scroll" data-image-src="theme/<?php echo $_Serveur_['General']['theme'];?>/img/jumbotron.png">
+    <div class="container">
+        <h1> Chat Minecraft </h1>
+        <br/>
+        <p> Accédez au chat du serveur Minecraft </p>
+    </div>
+</div>
+<div class="container">
+
+		<?php
+        if(count($jsonCon) === 0){
+            echo '<div class="alert alert-warning">Aucun serveur n\'est disponible pour le moment</div>';
+        }
+		else if(count($jsonCon) >= 1)
 		{
 			echo '<div class="alert alert-info">Commencez par choisir le serveur ! :)</div>';
 			$Chat = new Chat($jsonCon);
