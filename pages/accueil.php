@@ -257,10 +257,12 @@ if (isset($news)){
                         </div>
                     </div>
                 </div>
+        </div>
+
+
                 <?php $i++;
   }
 }
 ?>
         </div>
     </div>
-</div>
