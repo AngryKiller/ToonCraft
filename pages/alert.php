@@ -1,17 +1,19 @@
 <?php if(isset($_Joueur_))
 { ?>
+    <div class="jumbotron parallax" data-parallax="scroll" data-image-src="theme/<?php echo $_Serveur_['General']['theme'];?>/img/jumbotron.png">
         <div class="container">
             <h1> Alertes </h1>
             <br/>
             <hr>
             <p> Tableau récapitulatif de vos alertes </p>
         </div>
+    </div>
     <div class="container">
         <!--Vérif si le joueur est co -->
         <!-- Titre page-->
         <table class="table table-striped">
             <!--Tableau avec la liste des alertes
-Perso il faudrait que l'on puisse avoir le href ( qui actuellement est dans l'auteur de l'alerte ) sur toutes les
+Perso il faudrait que l'on puisse avoir le href ( qui actuellement est dans l'auteur de l'alerte ) sur toutes les 
 colonne mais genre du stye que lorsqu'on clic sur le fond on puisse y aller, en gros même si
 on clique sur autre chose que du texte ça nous redirige au bon endroit  -->
             <tr>
@@ -19,32 +21,32 @@ on clique sur autre chose que du texte ça nous redirige au bon endroit  -->
                 <th>Type d'alerte</th>
                 <th>Auteur de l'alerte</th>
             </tr>
-            <?php
+            <?php 
 /*J'ai décomposer les alertes en 2 parties :
-	- Les alertes signalant lorsque quelqu'un aime/aime pas une de vos réponses
-	- Les alertes signalant de nouvelles réponses sur un topic suivie
-
+	- Les alertes signalant lorsque quelqu'un aime/aime pas une de vos réponses 
+	- Les alertes signalant de nouvelles réponses sur un topic suivie 
+	
 Ici c'est les alertes pour aime/aime pas
 	*/
 $req_answer = $_JoueurForum_->get_like_dislike();
 
-//Récupération des données de la table avec jointure entre table
+//Récupération des données de la table avec jointure entre table 
 while($answer_liked = $req_answer->fetch())
 {
 	if($answer_liked['vu'] == '0')
 	{
-		//Si l'alerte n'a pas été vu on l'affiche
-
+		//Si l'alerte n'a pas été vu on l'affiche 
+		
 		/*Là on récupère des données pour trouver où rediriger ( c'est à dire :
-			- Ligne de la réponse aimé
-			- Page sur laquelle elle a été posté
+			- Ligne de la réponse aimé 
+			- Page sur laquelle elle a été posté 
 		*/
 		$a = $bddConnection->prepare('SELECT * FROM cmw_forum_answer WHERE id_topic = :id');
 		$a->execute(array(
 			'id' => $answer_liked['id_topic']
 		));
 		$da = $a->fetchAll();
-		//Ci-dessus on a récupéré toutes les réponses du topic
+		//Ci-dessus on a récupéré toutes les réponses du topic 
 		foreach($da as $key => $value)
 		{
 			if($da[$key]['id'] == $answer_liked['id_answer'])
@@ -72,13 +74,13 @@ while($answer_liked = $req_answer->fetch())
 			{
 				$tour++;
 			}
-			//On regarde si la ligne est comprise sur une page et on récupère le num de cette page
+			//On regarde si la ligne est comprise sur une page et on récupère le num de cette page 
 		}
-
+		
 		?>
                 <tr>
                     <td>
-                        <?php $topic = $bddConnection->prepare('SELECT * FROM cmw_forum_post WHERE id = :id');
+                        <?php $topic = $bddConnection->prepare('SELECT * FROM cmw_forum_post WHERE id = :id'); 
 			$topic->execute(array(
 				'id' => $answer_liked['id_topic']
 			));
@@ -96,9 +98,9 @@ while($answer_liked = $req_answer->fetch())
 			else
 			{
 				?>Quelqu'un n'a pas aimé votre réponse
-                                <?php
+                                <?php 
 			}
-			//On affiche si c'est une alerte de type : J'aime ou de type J'aime pas
+			//On affiche si c'est une alerte de type : J'aime ou de type J'aime pas 
 			?>
                     </td>
                     <td>
@@ -108,10 +110,10 @@ while($answer_liked = $req_answer->fetch())
                     </td>
                     <!-- On Affiche le nom de l'auteur de l'alerte + le lien vers la réponse aimé/pas aimé -->
                 </tr>
-                <?php
+                <?php 
 	}
 }
-// On change est on passe aux alertes de type : nouvelles réponses
+// On change est on passe aux alertes de type : nouvelles réponses 
 
 
 $req_topic = $_JoueurForum_->get_new_answer();
@@ -127,7 +129,7 @@ while($donnees_new = $req_topic->fetch())
 			'id' => $donnees_new['id_topic']
 		));
 		$bd = $b->fetchAll();
-		//On recommence le processus pour éterminer Ligne + Page de la réponse
+		//On recommence le processus pour éterminer Ligne + Page de la réponse 
 		foreach($bd as $key => $value)
 		{
 			if($bd[$key]['id'] == $donnees_new['last_answer_int'])
@@ -157,7 +159,7 @@ while($donnees_new = $req_topic->fetch())
                     <tr>
                         <td>
                             <?php
-			//On affiche le nom du topic
+			//On affiche le nom du topic 
 			echo $donnees_new['nom']; ?>
                         </td>
                         <td>

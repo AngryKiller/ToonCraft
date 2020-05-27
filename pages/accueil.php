@@ -1,46 +1,45 @@
-    <div class="bgtop">
-        <div class="container">
-            <h1> <?php echo $_Serveur_['General']['name'] ?> </h1>
-            <p>
-                <?php echo $_Serveur_['General']['description'] ?>
-            </p>
-            <?php if($_Serveur_['General']['statut'] == 0)
-            {
-                echo '<a class="btn btn-lg btn-danger">Serveur Hors ligne</a>';
-            }
-            else
-            {
-                echo '<a class="btn btn-lg btn-success">En Ligne: '.$playeronline.' / '.$maxPlayers.'</a>';
-            }
-            ?>
-        </div>
+<div class="jumbotron parallax" data-parallax="scroll" data-image-src="theme/<?php echo $_Serveur_['General']['theme'];?>/img/jumbotron.png">
+    <div class="container">
+        <h1> <?php echo $_Serveur_['General']['name'] ?> </h1>
+        <br/>
+        <p>
+            <?php echo $_Serveur_['General']['description'] ?>
+        </p>
+        <?php if(!empty($bouton_accueil)){ ?>
+            <a href="<?php echo $bouton_accueil_lien ?>" class="btn btn-lg btn-success">
+                <?php echo $bouton_accueil ?>
+            </a>
+            <?php }; ?>
     </div>
-<br/><br/>
-<center><br/>
-        <div class="ipserveuranim"><span class="ipserveur label label-primary"><?php echo $_Serveur_['General']['ipTexte'] ?></span></div>
+</div>
+<center>
+    <?php if(!empty($ipserveur)){ ?>
+        <div class="ipserveuranim"><span class="ipserveur label label-primary"><?php echo $ipserveur ?></span></div>
         <br/>
         <br/>
+        <br/>
+        <?php };?>
             <div class="container">
                 <div class="container">
                     <div class="col-md-4">
                         <div class="icone"> <img src="theme/<?php echo $_Serveur_['General']['theme']; ?>/img/swords.png" /> </div>
-                        <h1> <?php echo $_Theme_['All']['atout1_nom']; ?> </h1>
+                        <h1> <?php echo $atout1_nom ?> </h1>
                         <p>
-                            <?php echo $_Theme_['All']['atout1_text']; ?>
+                            <?php echo $atout1_text ?>
                         </p>
                     </div>
                     <div class="col-md-4">
                         <div class="icone"> <img src="theme/<?php echo $_Serveur_['General']['theme']; ?>/img/diamond.png" /> </div>
-                        <h1> <?php echo $_Theme_['All']['atout2_nom']; ?> </h1>
+                        <h1> <?php echo $atout2_nom ?> </h1>
                         <p>
-                            <?php echo $_Theme_['All']['atout2_text']; ?>
+                            <?php echo $atout2_text ?>
                         </p>
                     </div>
                     <div class="col-md-4">
                         <div class="icone"> <img src="theme/<?php echo $_Serveur_['General']['theme']; ?>/img/chest.png" /> </div>
-                        <h1> <?php echo $_Theme_['All']['atout3_nom']; ?> </h1>
+                        <h1> <?php echo $atout3_nom ?> </h1>
                         <p>
-                            <?php echo $_Theme_['All']['atout4_text']; ?>
+                            <?php echo $atout3_text ?>
                         </p>
                     </div>
                 </div>
@@ -48,15 +47,33 @@
 </center>
 <div class="news">
     <center>
-        <h1 class="title"  >Informations</h1></center>
+        <h1 class="title">Informations</h1></center>
     <div class="newsbg shadow" data-parallax="scroll" data-image-src="theme/<?php echo $_Serveur_['General']['theme'];?>/img/newsbg.png">
         <div class="container">
             <?php
+// RÉSUMÉ BRUT d'un texte (HTML ou non) : en fonction du NOMBRE de CARACTERES
+function texte_resume_brut($texte, $nbreCar)
+{
+  $texte 				= trim(strip_tags($texte));
+  if(is_numeric($nbreCar))
+  {
+    $PointSuspension	= '...';
+    $texte			.= ' ';
+    $LongueurAvant		= strlen($texte);
+    if ($LongueurAvant > $nbreCar) {
+      $texte = substr($texte, 0, strpos($texte, ' ', $nbreCar));
+      if ($PointSuspension!='') {
+        $texte	.= $PointSuspension;
+      }
+    }
+  }
+  return $texte;
+}
 
 if (isset($news)){
   $i = 0;
-  if (count($news) > 1)
-    $m = 1;
+  if (count($news) > 6)
+    $m = 6;
   else
       $m = count($news);
   while ($i < $m){
@@ -65,8 +82,8 @@ if (isset($news)){
     $titre = $news[$i]['titre'];
     $auteur = $news[$i]['auteur'];
     $date = date('d/m/Y', $news[$i]['date']).' &agrave; '.date('H:i', $news[$i]['date']);
-    $message = $news[$i]['message'];
-
+    $full = $news[$i]['message'];
+    $message = texte_resume_brut($full, 100);
       			$getCountCommentaires = $accueilNews->countCommentaires($news[$i]['id']);
 						$countCommentaires = $getCountCommentaires->rowCount();
 
@@ -76,7 +93,7 @@ if (isset($news)){
 
 						$getNewsCommentaires = $accueilNews->newsCommentaires($news[$i]['id']);
     ?>
-                <div class="col-md-12 col-sm-12 center-block">
+                <div class="col-md-4 col-sm-6 center-block">
                     <div class="panel panel-default shadow panel-news">
                         <div class="panel-heading" style="border-bottom: 1px solid #EEE; font-family: Raleway, Helvetica, sans-serif;">
                             <h4><?php echo $titre;?></h4> </div>
@@ -97,7 +114,7 @@ if (isset($news)){
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 <h4 class="modal-title" id="myModalLabel"><?php echo $titre; ?></h4> </div>
                             <div class="modal-body">
-                                <?php echo $message;?>
+                                <?php echo $full;?>
                             </div>
                             <div class="modal-footer">
                                 <?php
@@ -114,21 +131,20 @@ if (isset($news)){
 								} else {
 									echo '<div style="float: right;">';
 								}
-
+								
 								if($countLikesPlayers != 0) {
 									echo '&nbsp;&nbsp;<a href="#" class="tooltips2 pull-right"><i class="glyphicon glyphicon-thumbs-up"></i> '.$countLikesPlayers;
-
+						
 									echo '</span></a></div>';
 								}
 								?>
                                     <hr>
                                     <center>
                                         <h3 class="ticket-commentaire-titre"><B><?php echo $countCommentaires." Commentaires"; ?></B></h3></center>
-                                </div>
                                     <?php
 									while($newsComments = $getNewsCommentaires->fetch()) {
 										if(isset($_Joueur_)) {
-
+											
 											$getCheckReport = $accueilNews->checkReport($_Joueur_['pseudo'], $newsComments['pseudo'], $news[$i]['id'], $newsComments['id']);
 											$checkReport = $getCheckReport->rowCount();
 
@@ -140,8 +156,8 @@ if (isset($news)){
                                             <div class="panel-body">
                                                 <div class="ticket-commentaire">
                                                     <div class="left-ticket-commentaire" style="text-align:left;"> <span class="img-ticket-commentaire">
-															<img src="http://cravatar.eu/avatar/<?php echo $newsComments['pseudo']; ?>&s=1024&v=front" width="32" height="32" alt="none" />
-
+															<img src="http://api.craftmywebsite.fr/skin/face.php?u=<?php echo $newsComments['pseudo']; ?>&s=1024&v=front" width="32" height="32" alt="none" />
+															
 														</span> <span class="desc-ticket-commentaire">
 															<span class="ticket-commentaire-auteur"><?php echo '<B> - '.$newsComments['pseudo'].'</B>'; ?>
 															</span> <span class="ticket-commentaire-date"><?php echo '<B>Le '.date('d/m', $newsComments['date_post']).' à '.date('H:i:s', $newsComments['date_post']).'</B>'; ?>
@@ -233,7 +249,7 @@ if (isset($news)){
 									}
 								} ?>
                                                                 <hr> <small style="float: left;">
-              <img src="http://cravatar.eu/avatar/<?php echo $news[$i]['auteur']; ?>&s=1024&v=front" width="32" height="32">
+              <img src="http://api.craftmywebsite.fr/skin/face.php?u=<?php echo $news[$i]['auteur']; ?>&s=1024&v=front" width="32" height="32">
               Le <?php echo $date;?> par <?php echo $auteur;?>
             </small>
                                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
