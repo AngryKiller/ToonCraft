@@ -1,12 +1,11 @@
-<div class="jumbotron parallax" data-parallax="scroll" data-image-src="theme/<?php echo $_Serveur_['General']['theme'];?>/img/jumbotron.png">
-    <div class="container">
-        <h1> Boutique - Panier </h1>
-        <br/>
-        <p> Achetez plusieurs items en déboursant une seule fois </p>
+    <div class="container-fluid">
+        <h1 class="text-uppercase wow fadeInRight" style="color:white;"><i class="fa fa-shopping-basket"></i> Panier</h1>
     </div>
-</div>
-<div class="container">
-
+<section class="layout" id="page">
+    <div class="container">
+        <div class="text-center">
+            <p>Achetez plusieurs items en déboursant une seule fois</p>
+        </div>
         <?php
             if(isset($_GET['success']) && $_GET['success'] == 'true')
             {
@@ -28,7 +27,7 @@
             	<?php $nbArticles = $_Panier_->compterArticle();
                 $precedent = 0;
             	if($nbArticles == 0 )
-            		echo '<tr><td colspan="6"><center>Votre panier est vide </center></td></tr>';
+            		echo '<tr><td colspan="6"><center>Votre panier est vide :\'( </center></td></tr>';
             	else
             	{
 	            	for($i = 0; $i < $nbArticles; $i++)
@@ -44,7 +43,7 @@
                             <td><a href="?action=supprItemPanier&id=<?php echo htmlspecialchars($_SESSION['panier']['id'][$i]); ?>" class="btn btn-danger link" title="supprimer l'item du panier"><i class="fa fa-trash"></i></a></td>
 		                </tr>
 		               <?php
-		            } 
+		            }
                     if(!empty($_SESSION['panier']['reduction']))
                     {
                         echo '<tr><td>'.htmlspecialchars($_SESSION['panier']['code']).'</td><td>'.htmlspecialchars($_SESSION['panier']['reduction_titre']).'</td><td>1</td><td class="w-25 text-center">-'. $_SESSION['panier']['reduction']*100 .'%</td><td></td><td><a href="?action=retirerReduction" class="btn btn-danger link" title="supprimer la réduction"><i class="fa fa-trash"></i></a></td></tr>';
@@ -59,7 +58,7 @@
         </table>
         <form class="form-inline" action="?action=ajouterCode" method="POST">
             <div class="form-group">
-                <input type="text" class="form-control" required id="codepromo" name="codepromo" placeholder="Code promo" style="border:0px;">
+                <input type="text" class="form-control" id="codepromo" name="codepromo" placeholder="Code promo" style="border:0px;">
             </div>
             <button type="submit" class="btn btn-primary link" style="border:0px;">Envoyer</button>
         </form>
@@ -68,4 +67,5 @@
             <a href="?action=achat"><button class="btn btn-lg btn-primary hvr-float-shadow">Acheter !</button></a>
         </div>
     </div>
+</section>
 </div>
