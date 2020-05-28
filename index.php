@@ -9,7 +9,7 @@ require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <meta name="author" content="CraftMyWebsite, TheTueurCiTy, <?php echo $_Serveur_['General']['name']; ?>, AngryKiller, Emilien52" />
+        <meta name="author" content="CraftMyWebsite, TheTueurCiTy, <?php echo $_Serveur_['General']['name']; ?>, AngryKiller" />
         <link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/animate.css" rel="stylesheet" type="text/css">
         <link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
@@ -48,8 +48,9 @@ require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');
     <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/scrolldown.js"></script>
     <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/parallax.min.js"></script>
     <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/snarl.js"></script>
+    <?php if($_Serveur_['Payement']['dedipass'] == true) { ?> <script src="//api.dedipass.com/v1/pay.js"></script><?php } ?>
     <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/toastr.min.js"></script>
-    <script src="//api.dedipass.com/v1/pay.js"></script>
+    <?php include('theme/' .$_Serveur_['General']['theme']. '/js/cmw.php'); ?>
 <script>
 
 function securPass()
