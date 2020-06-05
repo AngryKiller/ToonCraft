@@ -47,6 +47,8 @@ require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');
     <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/bootstrap.js"></script>
     <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/scrolldown.js"></script>
     <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/parallax.min.js"></script>
+    <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/wow.min.js"></script>
+    <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/custom.js"></script>
     <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/snarl.js"></script>
     <?php if($_Serveur_['Payement']['dedipass'] == true) { ?> <script src="//api.dedipass.com/v1/pay.js"></script><?php } ?>
     <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/toastr.min.js"></script>
